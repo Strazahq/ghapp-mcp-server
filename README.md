@@ -1,16 +1,22 @@
 # ghapp-mcp-server
 
-ghapp lets AI agents work on GitHub through MCP as one GitHub App, behind
-Straza, so that each call reaches one repository and no GitHub token ever
-sits on the agent's machine. It works only behind Straza: without it, use
-GitHub's own MCP server or `gh`.
+ghapp is the GitHub server for [Straza](https://straza.ai). It lets AI
+agents work on GitHub through MCP as one GitHub App: each call reaches one
+repo, with only the permissions its tool needs, and no GitHub token ever
+sits on the agent's machine.
+
+> **ghapp is of no use without Straza.** Straza decides which repos each
+> agent may touch, and brings the grant that opens git. Without it, ghapp
+> would reach every repo the App is installed on, and git would not work
+> at all. If you don't run Straza, use GitHub's official MCP server,
+> [github/github-mcp-server](https://github.com/github/github-mcp-server),
+> instead.
 
 ![Who holds what. Four parts, left to right: the agent machine, Straza, ghapp and GitHub. The agent machine never holds a GitHub token. ghapp holds the App key and the tokens. One call goes through Straza and ghapp to GitHub and back.](docs/diagrams/overview.svg)
 
-Four parts, always in this order and colour. **MCP** is the protocol AI
-agents use to call tools. **Straza** is the gateway in front of MCP
-servers, and its roles say which tools and which repos an agent may use.
-**ghapp** is this server. It holds the GitHub App's private key and makes a
+**MCP** is the protocol AI agents use to call tools. **Straza** is the
+gateway in front of MCP servers: its roles say which tools and repos an
+agent may use. **ghapp** holds the GitHub App's private key and makes a
 short-lived GitHub token for each call. **GitHub** sees every action as
 `ghapp[bot]`.
 
@@ -18,29 +24,25 @@ short-lived GitHub token for each call. **GitHub** sees every action as
 
 ![One tool call. joe-macos-agent calls pr_create on Strazahq/pay-api. Straza checks a role covers the repo, ghapp checks the caller, the name and the id, makes a token for repo 812345678 with pull_requests write and contents read, and GitHub creates the PR. The same call on Strazahq/straza is refused at Straza.](docs/diagrams/tool-call.svg)
 
-Two locks. Straza decides whether one of the agent's roles covers the
-repo. ghapp makes sure the call can touch only that repo: it checks who is
-calling, that the name is exact and that the repo id is the one Straza
-approved, and then makes a token for that one repo with only the tool's
-permissions.
-
-A repo no role covers stops at Straza, and ghapp never sees the call.
+Two locks. Straza decides whether the agent's role covers the repo, and a
+repo no role covers stops there. ghapp then makes sure the call can touch
+only that repo: it checks who is calling, that the name is exact and that
+the repo id is the approved one, and makes a token for that one repo with
+only the tool's permissions.
 
 ## git push
 
 ![git push through Straza's holder. The agent types plain git push; Straza's holder on the same machine, under its own OS account, reads the branch and commits, gets a grant from Straza for exactly those, and sends the push to ghapp with the grant and a proof signed by its key. ghapp checks both and pushes to GitHub with a token that stays in ghapp.](docs/diagrams/git-grant.svg)
 
 The agent types plain `git push`. Straza's holder, a service on the same
-machine under its own OS account, reads the branch and the commits, asks
-Straza for a grant naming exactly those, and sends the push to ghapp with
-the grant and a proof signed by its own key. ghapp checks both, compares
-the push with the grant, and streams it on to GitHub with a token that
-stays in ghapp. A push can be 2 GiB, so the code never passes through
-Straza's MCP traffic.
+machine under its own OS account, gets a grant for exactly that branch and
+those commits, and sends the push to ghapp with the grant and a proof
+signed by its own key. ghapp checks both, compares the push with the
+grant, and streams it to GitHub with a token that stays in ghapp. A push
+can be 2 GiB, so the code never goes through MCP.
 
-`git_push` and `git_fetch` are the tools a Straza role binds for git. Called
-over MCP, they check the repo and give the plain git command. They hand
-out nothing that opens git: only the holder's grant does.
+Over MCP, `git_push` and `git_fetch` only check the repo and give the plain
+git command. Only the holder's grant opens git.
 
 ## Tools
 
