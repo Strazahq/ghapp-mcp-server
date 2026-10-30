@@ -4,7 +4,7 @@
 # for the target platform, so a multi-arch build needs no emulation.
 # The Go release is the toolchain line of go.mod, pinned by digest. Dependabot
 # moves the tag and the digest together.
-FROM --platform=$BUILDPLATFORM golang:1.26.10@sha256:670bb5aa5349ae03b8516764718486f4f16399134bdc9acd0c46a23f043ab05c AS build
+FROM --platform=$BUILDPLATFORM golang:1.27.2@sha256:820153096fda4de6ac1b7194d12e416b7dd8f4e9a33d17e0345b111b945162d8 AS build
 
 WORKDIR /src
 
