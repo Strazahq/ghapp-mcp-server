@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="912" viewBox="0 0 960 912" role="img" aria-labelledby="scope-title scope-desc">
+<title id="scope-title">What a role covers</title>
+<desc id="scope-desc">The Straza role ghapp-write-payments holds pr_create, pr_merge and git_push. Its field covers takes one of three forms. every covers all nine repos. objects: [Strazahq/pay-api] covers one. where: {team: [payments]} covers the three repos whose team is payments: pay-api, pay-ledger and refunds. The team comes from a GitHub custom property, which ghapp's repo_list hands to Straza. midPoint imports the role as AR:ghapp-write-payments with the covers line repo where team is payments, the rule in words.</desc>
+<style>svg{font-family:system-ui,-apple-system,"Segoe UI",Roboto,"Noto Sans","Helvetica Neue",Arial,sans-serif;--bg:#F5F6F8;--card:#FFFFFF;--line:#D7DBE1;--faint:#C4CAD2;--ink:#1A1D23;--ink2:#596170;--agent:#2C5F9E;--straza:#17765A;--ghapp:#8C5B09;--github:#59616E;--no:#B1271B;--agent-t:#E2EBF7;--straza-t:#DCF0E8;--ghapp-t:#F6EAD3;--github-t:#E8EBEF;--no-t:#FBE3E0;}@media (prefers-color-scheme:dark){svg{--bg:#14171C;--card:#1B1F26;--line:#2E343D;--faint:#3B424D;--ink:#E6E8EC;--ink2:#A1A9B5;--agent:#83AEE8;--straza:#5DC3A0;--ghapp:#E2AC52;--github:#AEB6C2;--no:#F08A7E;--agent-t:#1C2B40;--straza-t:#13322A;--ghapp-t:#36290F;--github-t:#272C34;--no-t:#3D1D1A;}}text{white-space:pre}.m{font-family:ui-monospace,SFMono-Regular,"SF Mono",Menlo,Consolas,"Liberation Mono","Noto Sans Mono",monospace}.panel{fill:var(--bg);stroke:var(--line);stroke-width:1.5}.card{fill:var(--card);stroke:var(--line);stroke-width:1.25}.z16{font-size:16px}.z17{font-size:17px}.z18{font-size:18px}.z19{font-size:19px}.z20{font-size:20px}.z21{font-size:21px}.z22{font-size:22px}.z28{font-size:28px}.w6{font-weight:600}.it{font-style:italic}.ink{fill:var(--ink)}.ink2{fill:var(--ink2)}.oncard{fill:var(--card)}.h{paint-order:stroke;stroke:var(--bg);stroke-width:8px;stroke-linejoin:round}.hc{paint-order:stroke;stroke:var(--card);stroke-width:8px;stroke-linejoin:round}.trk{fill:none;stroke:var(--faint);stroke-width:2}.trk10{fill:none;stroke:var(--faint);stroke-width:10;stroke-linecap:round}.life{fill:none;stroke:var(--faint);stroke-width:2;stroke-linecap:round;stroke-dasharray:0 7}.ln{fill:none;stroke-width:2.25;stroke-linecap:round;stroke-linejoin:round}.ln10{fill:none;stroke-width:10;stroke-linecap:round}.dash{fill:none;stroke:var(--ink2);stroke-width:1.5;stroke-dasharray:5 5}.frame{fill:none;stroke:var(--line);stroke-width:1.25}.pk,.o0{opacity:0}.mask{fill:var(--card)}.pkf{fill:var(--ink)}.f-agent{fill:var(--agent)}.s-agent{stroke:var(--agent)}.t-agent{fill:var(--agent-t)}.f-straza{fill:var(--straza)}.s-straza{stroke:var(--straza)}.t-straza{fill:var(--straza-t)}.f-ghapp{fill:var(--ghapp)}.s-ghapp{stroke:var(--ghapp)}.t-ghapp{fill:var(--ghapp-t)}.f-github{fill:var(--github)}.s-github{stroke:var(--github)}.t-github{fill:var(--github-t)}.f-no{fill:var(--no)}.s-no{stroke:var(--no)}.t-no{fill:var(--no-t)}.mk-full{fill:var(--ink2)}.mk-line{fill:none;stroke:var(--ink2);stroke-width:1.5}@media (prefers-reduced-motion:no-preference){.k1{animation:k1 12s ease-in-out infinite}.k2{animation:k2 12s ease-in-out infinite}.k3{animation:k3 12s ease-in-out infinite}.k4{animation:k4 12s ease-in-out infinite}.k5{animation:k5 12s ease-in-out infinite}.k6{animation:k6 12s ease-in-out infinite}.k7{animation:k7 12s ease-in-out infinite}.k8{animation:k8 12s ease-in-out infinite}.k9{animation:k9 12s ease-in-out infinite}.k10{animation:k10 12s ease-in-out infinite}.k11{animation:k11 12s ease-in-out infinite}.k12{animation:k12 12s ease-in-out infinite}.k13{animation:k13 12s ease-in-out infinite}}@keyframes k1{0%{opacity:0}30%{opacity:0}33.33%{opacity:0}60%{opacity:0}63.33%{opacity:1}94.17%{opacity:1}100%{opacity:0}}@keyframes k2{0%{opacity:1}30%{opacity:1}33.33%{opacity:0}60%{opacity:0}63.33%{opacity:0}94.17%{opacity:0}100%{opacity:1}}@keyframes k3{0%{opacity:0}30%{opacity:0}33.33%{opacity:1}60%{opacity:1}63.33%{opacity:0}94.17%{opacity:0}100%{opacity:0}}@keyframes k4{0%{opacity:1}30%{opacity:1}33.33%{opacity:0}60%{opacity:0}63.33%{opacity:0}94.17%{opacity:0}100%{opacity:1}}@keyframes k5{0%{opacity:1}30%{opacity:1}33.33%{opacity:0}60%{opacity:0}63.33%{opacity:0}94.17%{opacity:0}100%{opacity:1}}@keyframes k6{0%{opacity:1}30%{opacity:1}33.33%{opacity:0}60%{opacity:0}63.33%{opacity:0}94.17%{opacity:0}100%{opacity:1}}@keyframes k7{0%{opacity:1}30%{opacity:1}33.33%{opacity:0}60%{opacity:0}63.33%{opacity:1}94.17%{opacity:1}100%{opacity:1}}@keyframes k8{0%{opacity:1}30%{opacity:1}33.33%{opacity:0}60%{opacity:0}63.33%{opacity:0}94.17%{opacity:0}100%{opacity:1}}@keyframes k9{0%{opacity:1}30%{opacity:1}33.33%{opacity:0}60%{opacity:0}63.33%{opacity:0}94.17%{opacity:0}100%{opacity:1}}@keyframes k10{0%{opacity:1}30%{opacity:1}33.33%{opacity:0}60%{opacity:0}63.33%{opacity:0}94.17%{opacity:0}100%{opacity:1}}@keyframes k11{0%{opacity:1}30%{opacity:1}33.33%{opacity:0}60%{opacity:0}63.33%{opacity:1}94.17%{opacity:1}100%{opacity:1}}@keyframes k12{0%{opacity:0.25}30%{opacity:0.25}33.33%{opacity:0}60%{opacity:0}63.33%{opacity:1}94.17%{opacity:1}100%{opacity:0.25}}@keyframes k13{0%{opacity:0}30%{opacity:0}33.33%{opacity:1}60%{opacity:1}63.33%{opacity:0}94.17%{opacity:0}100%{opacity:0}}@media (prefers-reduced-motion:reduce){*{animation:none!important}}</style>
+<rect x="0.75" y="0.75" width="958.5" height="910.5" rx="20" class="panel"/>
+<text x="32" y="62" class="m z18 ink2">04</text>
+<text x="66" y="62" class="z28 w6 ink">What a role covers</text>
+<text x="32" y="104" class="z20 ink">A Straza role holds tools. Its field <tspan class="m w6">covers</tspan> says which repos.</text>
+<rect x="32" y="132" width="420" height="488" rx="14" class="card"/>
+<path d="M32 146 A14 14 0 0 1 46 132 H438 A14 14 0 0 1 452 146" class="s-straza" fill="none" stroke-width="5"/>
+<text x="52" y="178" class="z22 w6 ink">Straza role</text>
+<text x="52" y="218" class="z17 ink2">name</text>
+<text x="52" y="246" class="m z21 ink">ghapp-write-payments</text>
+<text x="52" y="290" class="z17 ink2">tools</text>
+<text x="52" y="317" class="m z19 ink">pr_create</text>
+<text x="52" y="343" class="m z19 ink">pr_merge</text>
+<text x="52" y="369" class="m z19 ink">git_push</text>
+<text x="52" y="412" class="z17 ink2"><tspan class="m w6 ink">covers</tspan>, one of three forms</text>
+<g class="k1"><rect x="44" y="426" width="396" height="56" rx="8" class="t-straza"/><rect x="44" y="434" width="4" height="40" rx="2" class="f-straza"/></g>
+<text x="62" y="451" class="m z18 ink">where: {team: [payments]}</text>
+<text x="62" y="473" class="z17 ink2">3 repos, by their team</text>
+<g class="k2 o0"><rect x="44" y="488" width="396" height="56" rx="8" class="t-straza"/><rect x="44" y="496" width="4" height="40" rx="2" class="f-straza"/></g>
+<text x="62" y="513" class="m z18 ink">every</text>
+<text x="62" y="535" class="z17 ink2">all 9 repos</text>
+<g class="k3 o0"><rect x="44" y="550" width="396" height="56" rx="8" class="t-straza"/><rect x="44" y="558" width="4" height="40" rx="2" class="f-straza"/></g>
+<text x="62" y="575" class="m z18 ink">objects: [Strazahq/pay-api]</text>
+<text x="62" y="597" class="z17 ink2">1 repo, by name</text>
+<text x="484" y="150" class="z17 ink2">repos in Strazahq, with their team</text>
+<rect x="484" y="166" width="140" height="96" rx="10" class="card"/>
+<rect x="484" y="166" width="140" height="96" rx="10" stroke-width="2" class="t-straza s-straza"/>
+<text x="498" y="206" class="m z18 ink">pay-api</text>
+<text x="498" y="236" class="z17 ink2">payments</text>
+<rect x="636" y="166" width="140" height="96" rx="10" class="card"/>
+<g class="k4 o0"><rect x="636" y="166" width="140" height="96" rx="10" stroke-width="2" class="t-straza s-straza"/></g>
+<text x="650" y="206" class="m z18 ink">straza</text>
+<text x="650" y="236" class="z17 ink2">platform</text>
+<rect x="788" y="166" width="140" height="96" rx="10" class="card"/>
+<g class="k5 o0"><rect x="788" y="166" width="140" height="96" rx="10" stroke-width="2" class="t-straza s-straza"/></g>
+<text x="802" y="206" class="m z18 ink">straza-site</text>
+<text x="802" y="236" class="z17 ink2">web</text>
+<rect x="484" y="274" width="140" height="96" rx="10" class="card"/>
+<g class="k6 o0"><rect x="484" y="274" width="140" height="96" rx="10" stroke-width="2" class="t-straza s-straza"/></g>
+<text x="498" y="314" class="m z18 ink">console</text>
+<text x="498" y="344" class="z17 ink2">platform</text>
+<rect x="636" y="274" width="140" height="96" rx="10" class="card"/>
+<g class="k7"><rect x="636" y="274" width="140" height="96" rx="10" stroke-width="2" class="t-straza s-straza"/></g>
+<text x="650" y="314" class="m z18 ink">pay-ledger</text>
+<text x="650" y="344" class="z17 ink2">payments</text>
+<rect x="788" y="274" width="140" height="96" rx="10" class="card"/>
+<g class="k8 o0"><rect x="788" y="274" width="140" height="96" rx="10" stroke-width="2" class="t-straza s-straza"/></g>
+<text x="802" y="314" class="m z18 ink">docs</text>
+<text x="802" y="344" class="z17 ink2">web</text>
+<rect x="484" y="382" width="140" height="96" rx="10" class="card"/>
+<g class="k9 o0"><rect x="484" y="382" width="140" height="96" rx="10" stroke-width="2" class="t-straza s-straza"/></g>
+<text x="498" y="422" class="m z18 ink">infra</text>
+<text x="498" y="452" class="z17 ink2">platform</text>
+<rect x="636" y="382" width="140" height="96" rx="10" class="card"/>
+<g class="k10 o0"><rect x="636" y="382" width="140" height="96" rx="10" stroke-width="2" class="t-straza s-straza"/></g>
+<text x="650" y="422" class="m z18 ink">mobile</text>
+<text x="650" y="452" class="z17 ink2">mobile</text>
+<rect x="788" y="382" width="140" height="96" rx="10" class="card"/>
+<g class="k11"><rect x="788" y="382" width="140" height="96" rx="10" stroke-width="2" class="t-straza s-straza"/></g>
+<text x="802" y="422" class="m z18 ink">refunds</text>
+<text x="802" y="452" class="z17 ink2">payments</text>
+<text x="484" y="514" class="z17 ink2">team is a GitHub custom property. ghapp's</text>
+<text x="484" y="538" class="z17 ink2"><tspan class="m">repo_list</tspan> hands it to Straza with each repo.</text>
+<path d="M242 620 L242 666" class="ln" style="stroke:var(--ink2)"/>
+<path d="M235 659 L242 666 L249 659" class="ln" style="stroke:var(--ink2)"/>
+<text x="258" y="650" class="z17 ink2">imported as a role</text>
+<rect x="32" y="668" width="896" height="148" rx="14" class="card"/>
+<text x="52" y="710" class="z22 w6 ink">midPoint</text>
+<text x="52" y="746" class="z17 ink2">role</text>
+<text x="52" y="774" class="m z20 ink">AR:ghapp-write-payments</text>
+<text x="400" y="746" class="z17 ink2">covers</text>
+<text x="400" y="774" class="z20 ink k12">repo where team is payments</text>
+<g class="k13 o0"><rect x="392" y="752" width="260" height="32" rx="6" class="mask"/><text x="400" y="774" class="z20 ink">repo <tspan class="m">Strazahq/pay-api</tspan></text></g>
+<text x="712" y="746" class="z17 ink2">the rule in words.</text>
+<text x="712" y="770" class="z17 ink2">The repo list stays</text>
+<text x="712" y="794" class="z17 ink2">in Straza.</text>
+<rect x="32" y="848" width="12" height="12" rx="2" class="mk-full"/>
+<text x="54" y="860" class="z17 ink2"><tspan class="w6 ink">Built: </tspan><tspan class="m">repo_list</tspan> in ghapp, Straza's field <tspan class="m">covers</tspan> with every and objects, its check, and the line in midPoint.</text>
+<rect x="32.75" y="875.75" width="10.5" height="10.5" rx="2" class="mk-line"/>
+<text x="54" y="887" class="z17 ink2"><tspan class="w6 ink">Designed, not built: </tspan><tspan class="m">where</tspan>, covering repos by their team, in Straza.</text>
+</svg>

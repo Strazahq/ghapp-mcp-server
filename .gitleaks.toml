@@ -1,0 +1,14 @@
+# Test values that look like secrets and are not: the example grants of
+# Straza's grant spec, GitHub's documented example installation token, and
+# the made-up ticket key of the retired-setting tests ("secret-key-value" in
+# base64).
+[extend]
+useDefault = true
+
+[[allowlists]]
+description = "test values"
+paths = ['''^testdata/spec-grant/[a-z0-9-]+\.json$''']
+regexes = [
+  '''ghs_16C7e42F292c6912E7710c838347Ae178B4a''',
+  '''c2VjcmV0LWtleS12YWx1ZQ==''',
+]

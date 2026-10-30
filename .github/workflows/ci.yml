@@ -1,0 +1,45 @@
+# Runs the checks on every pull request and every push to main: gofmt,
+# go vet, the doc comment check, the tests with the race detector,
+# govulncheck, and the offline demo end to end, which runs real git through
+# stand-ins for GitHub, Straza and its holder.
+#
+# Every action is pinned by its full commit SHA, with its release in the
+# comment. Change the SHA and the comment together.
+name: ci
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+env:
+  GOTOOLCHAIN: local
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      # setup-go reads only the go line of go.mod, the oldest Go the module
+      # builds with. The build uses the toolchain line, so read that one.
+      - id: go
+        run: |
+          v=$(awk '$1 == "toolchain" { sub(/^go/, "", $2); print $2 }' go.mod)
+          test -n "$v"
+          echo "version=$v" >> "$GITHUB_OUTPUT"
+      - uses: actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e # v7.0.0
+        with:
+          go-version: ${{ steps.go.outputs.version }}
+      - run: make check
+      - run: go run golang.org/x/vuln/cmd/govulncheck@v1.9.0 ./...
+      - run: ./demo/run.sh

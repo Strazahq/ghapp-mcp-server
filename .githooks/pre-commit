@@ -1,0 +1,8 @@
+#!/bin/sh
+# Refuses a commit with Go files gofmt would change.
+unformatted=$(git diff --cached --name-only --diff-filter=ACM -- '*.go' | xargs -r gofmt -l)
+if [ -n "$unformatted" ]; then
+	echo "pre-commit: run gofmt -w on:" >&2
+	echo "$unformatted" >&2
+	exit 1
+fi

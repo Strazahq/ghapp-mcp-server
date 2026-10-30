@@ -1,0 +1,26 @@
+# Binaries
+/bin/
+/ghapp-mcp-server
+/dist/
+*.exe
+*.test
+
+# Coverage & profiling
+coverage.out
+*.prof
+
+# Local state
+.env
+.env.*
+
+# Keys and demo transcripts never go into git
+*.pem
+/demo/*.txt
+
+# Editor
+.idea/
+.vscode/
+*.swp
+
+# Local editor-assistant state
+/.claude/

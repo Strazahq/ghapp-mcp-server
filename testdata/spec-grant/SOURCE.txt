@@ -1,0 +1,19 @@
+These files are copied from Straza's grant spec, spec/grant v1alpha1,
+examples, byte for byte. TestGrantSpecExamples in git_grant_spec_test.go
+replays them against ghapp's verifier. Each file's own provenance member
+says how it was made, and sha256sum shows the copies are whole:
+
+7e8681776a48125903edb524ffc689675d22619c9fa0ff00dad8eb57fc1d9796  invalid-aud-trailing-slash.json
+6e453a2c839413bc008aa9e068c7bec4af02e6a6f5999a3b5518a4493117e7da  invalid-lifetime-over-300s.json
+4f1d0c6877b5e665cc5a3f33746eb4573ecb59bbf214392648107826ee9a19dc  invalid-missing-cnf.json
+82735af32c279afad8ebfa250e2dc788ac73c9612b5f87a10af4685bb3d8b8fe  invalid-other-signer.json
+df4cadbc8e048cdadf4ecd1a74d997871abff2c03068373d15ecebd98f03887c  invalid-refs-on-fetch.json
+150a946fe990d4003e1c8c5ff95bcbd9768449e135b02d789665da64bd71fd7c  invalid-typ-session.json
+25f4d022feb780f5cba69756cf1e450326bc864df0a5d0b757adaf536a70fcb3  valid-fetch.json
+e9a2e4b4017cac62bc80b7ae2716a9f64045a59f377d5f5d0308829a3d52778e  valid-push-advertisement.json
+c3babaa52873a367addc7149eb700fd34fac91268b40ccc0b7fee8d8a72995f8  valid-push-refs-approved.json
+32b69dabcbfd09ae354b28a9d9579be69895ede4f36a1eb90e98e1b345508240  valid-push-sha256.json
+
+When the spec's examples change, copy the folder again, update the table
+above, and add any new file to the table in TestGrantSpecExamples, which
+fails on a file it does not know.

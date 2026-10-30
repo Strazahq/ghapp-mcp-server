@@ -1,0 +1,17 @@
+# Weekly pull requests for newer Go modules, GitHub Actions and base images.
+# An action or image update moves its pinned SHA or digest and its comment
+# together.
+version: 2
+updates:
+  - package-ecosystem: gomod
+    directory: /
+    schedule:
+      interval: weekly
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly
+  - package-ecosystem: docker
+    directory: /
+    schedule:
+      interval: weekly

@@ -1,0 +1,13 @@
+{
+  "_note": "Roles for fakestraza, the demo's stand-in for Straza. This is not Straza's own format: it holds only what the demo needs. A role names tools, and its field covers names the repos those tools may touch: every, objects, or where on attributes from ghapp's repo_list.",
+  "server": "ghapp",
+  "agents": {
+    "joe-macos-agent": ["ghapp-write-payments"]
+  },
+  "roles": {
+    "ghapp-write-payments": {
+      "tools": ["pr_create", "pr_get", "issue_create", "git_fetch", "git_push"],
+      "covers": { "where": { "team": ["payments"] } }
+    }
+  }
+}

@@ -1,0 +1,8 @@
+#!/bin/sh
+# Refuses a commit message that credits an AI assistant: no Co-Authored-By
+# line for one, and no "Generated with" footer. The author of a commit is the
+# person who sends it.
+if grep -qiE '^(co-authored-by:.*(claude|anthropic|openai|copilot|gpt|gemini|noreply@anthropic)|.*generated with .*(claude|copilot|chatgpt|ai))' "$1"; then
+	echo "commit-msg: remove the AI attribution line from the commit message." >&2
+	exit 1
+fi

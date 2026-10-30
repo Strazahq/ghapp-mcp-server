@@ -1,0 +1,195 @@
+# Publishes a GitHub Release for every v* tag: a static binary for Linux,
+# macOS and Windows on amd64 and arm64, an SPDX SBOM of each binary, a
+# SHA256SUMS file, and the section of CHANGELOG.md for that version as the
+# release notes. Each archive carries a signed build provenance attestation
+# and a signed SBOM attestation. The image workflow publishes the container
+# image from the same tag.
+#
+# Run by hand with a tag, the workflow is a dry run: it checks, builds and
+# scans that version, keeps the files as run artifacts, and neither signs
+# nor publishes anything.
+#
+# Every action is pinned by its full commit SHA, with its release in the
+# comment. Change the SHA and the comment together.
+name: release
+
+on:
+  push:
+    tags: ["v*"]
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: The tag to try, such as v1.2.3. CHANGELOG.md needs its section.
+        required: true
+
+permissions: {}
+
+concurrency:
+  group: release-${{ inputs.tag || github.ref_name }}
+  cancel-in-progress: false
+
+env:
+  GOTOOLCHAIN: local
+  TAG: ${{ inputs.tag || github.ref_name }}
+  PUBLISH: ${{ github.event_name == 'push' }}
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      # setup-go reads only the go line of go.mod, the oldest Go the module
+      # builds with. The build uses the toolchain line, so read that one.
+      - id: go
+        run: |
+          v=$(awk '$1 == "toolchain" { sub(/^go/, "", $2); print $2 }' go.mod)
+          test -n "$v"
+          echo "version=$v" >> "$GITHUB_OUTPUT"
+      - uses: actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e # v7.0.0
+        with:
+          go-version: ${{ steps.go.outputs.version }}
+      - run: go vet ./...
+      - run: go test -race ./...
+      - run: go run golang.org/x/vuln/cmd/govulncheck@v1.9.0 ./...
+      # The notes are the CHANGELOG.md section of the tag's version. A tag
+      # without its section fails here, before anything is built.
+      - name: Release notes
+        run: |
+          if ! printf '%s\n' "$TAG" | grep -qE '^v[0-9]+\.[0-9]+\.[0-9]+(-[0-9A-Za-z.-]+)?$'; then
+            echo "$TAG is not a release tag such as v1.2.3." >&2
+            exit 1
+          fi
+          version=${TAG#v}
+          awk -v head="## [$version]" 'index($0, head) == 1 { on = 1; next } on && (/^## \[/ || /^\[[^]]+\]: /) { exit } on' CHANGELOG.md > notes.md
+          if ! grep -q '[^[:space:]]' notes.md; then
+            echo "CHANGELOG.md has no section ## [$version], so $TAG has no release notes. Add the section and tag again." >&2
+            exit 1
+          fi
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: notes
+          path: notes.md
+          if-no-files-found: error
+
+  build:
+    needs: check
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    permissions:
+      contents: read
+      id-token: write
+      attestations: write
+    strategy:
+      matrix:
+        target: [linux/amd64, linux/arm64, darwin/amd64, darwin/arm64, windows/amd64, windows/arm64]
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - id: go
+        run: |
+          v=$(awk '$1 == "toolchain" { sub(/^go/, "", $2); print $2 }' go.mod)
+          test -n "$v"
+          echo "version=$v" >> "$GITHUB_OUTPUT"
+      - uses: actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e # v7.0.0
+        with:
+          go-version: ${{ steps.go.outputs.version }}
+      - name: Build
+        id: build
+        env:
+          TARGET: ${{ matrix.target }}
+          CGO_ENABLED: "0"
+        run: |
+          version=${TAG#v}
+          os=${TARGET%/*} arch=${TARGET#*/}
+          name=ghapp-mcp-server_${version}_${os}_${arch}
+          ext=; [ "$os" = windows ] && ext=.exe
+          mkdir -p "$name" dist
+          GOOS=$os GOARCH=$arch go build -trimpath \
+            -ldflags "-X main.version=${version}" \
+            -o "$name/ghapp-mcp-server$ext" .
+          cp LICENSE NOTICE README.md CHANGELOG.md "$name/"
+          if [ "$os" = windows ]; then
+            archive=dist/$name.zip
+            zip -qr "$archive" "$name"
+          else
+            archive=dist/$name.tar.gz
+            tar -czf "$archive" "$name"
+          fi
+          {
+            echo "name=$name"
+            echo "binary=$name/ghapp-mcp-server$ext"
+            echo "archive=$archive"
+          } >> "$GITHUB_OUTPUT"
+      - uses: anchore/sbom-action/download-syft@66cbf4bc1f1c0d2edc94016e65bc221b6bb0ad6c # v0.24.3
+        id: syft
+      # syft reads the module list that the Go linker writes into the
+      # binary, so the SBOM names exactly the modules that the binary holds.
+      - name: SBOM
+        env:
+          SYFT: ${{ steps.syft.outputs.cmd }}
+          NAME: ${{ steps.build.outputs.name }}
+          BINARY: ${{ steps.build.outputs.binary }}
+        run: |
+          sbom=dist/$NAME.spdx.json
+          "$SYFT" scan "file:$BINARY" --source-name ghapp-mcp-server --source-version "${TAG#v}" -o "spdx-json=$sbom"
+          if ! grep -q 'github.com/modelcontextprotocol/go-sdk' "$sbom"; then
+            echo "$sbom does not list github.com/modelcontextprotocol/go-sdk, so syft did not read the modules of $BINARY." >&2
+            exit 1
+          fi
+      # GitHub signs attestations for private repositories on Enterprise
+      # Cloud only, so the steps are skipped in a private copy.
+      - uses: actions/attest-build-provenance@4d101475d8b20a2381f78447822ac1eab6504dd8 # v4.2.2
+        if: ${{ env.PUBLISH == 'true' && !github.event.repository.private }}
+        with:
+          subject-path: ${{ steps.build.outputs.archive }}
+          create-storage-record: false
+      - uses: actions/attest-sbom@c604332985a26aa8cf1bdc465b92731239ec6b9e # v4.1.0
+        if: ${{ env.PUBLISH == 'true' && !github.event.repository.private }}
+        with:
+          subject-path: ${{ steps.build.outputs.archive }}
+          sbom-path: dist/${{ steps.build.outputs.name }}.spdx.json
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: ${{ steps.build.outputs.name }}
+          path: dist/
+          if-no-files-found: error
+
+  publish:
+    needs: build
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: write
+      id-token: write
+      attestations: write
+    steps:
+      - uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2
+        with:
+          pattern: ghapp-mcp-server_*
+          path: dist
+          merge-multiple: true
+      - uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2
+        with:
+          name: notes
+      - name: Checksums
+        run: |
+          cd dist
+          test "$(ls | wc -l)" -eq 12
+          sha256sum * > SHA256SUMS
+          cat SHA256SUMS
+      - uses: actions/attest-build-provenance@4d101475d8b20a2381f78447822ac1eab6504dd8 # v4.2.2
+        if: ${{ env.PUBLISH == 'true' && !github.event.repository.private }}
+        with:
+          subject-path: dist/SHA256SUMS
+          create-storage-record: false
+      - name: Publish
+        if: ${{ env.PUBLISH == 'true' }}
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh release create "$TAG" dist/* --repo "$GITHUB_REPOSITORY" --verify-tag --title "$TAG" --notes-file notes.md

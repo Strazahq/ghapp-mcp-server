@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="752" viewBox="0 0 960 752" role="img" aria-labelledby="overview-title overview-desc">
+<title id="overview-title">Who holds what</title>
+<desc id="overview-desc">Four parts, left to right: the agent machine, Straza, ghapp and GitHub. The agent machine holds the agent, git through Straza's holder and its Straza session, and never a GitHub token. Straza holds roles, approvals and audit. ghapp holds the App private key and the GitHub tokens, which stay in ghapp, and checks the exact name and the repo id. GitHub holds the repos and its audit log, which shows ghapp[bot] and the token hash. One call goes from the agent through Straza and ghapp to GitHub and back.</desc>
+<style>svg{font-family:system-ui,-apple-system,"Segoe UI",Roboto,"Noto Sans","Helvetica Neue",Arial,sans-serif;--bg:#F5F6F8;--card:#FFFFFF;--line:#D7DBE1;--faint:#C4CAD2;--ink:#1A1D23;--ink2:#596170;--agent:#2C5F9E;--straza:#17765A;--ghapp:#8C5B09;--github:#59616E;--no:#B1271B;--agent-t:#E2EBF7;--straza-t:#DCF0E8;--ghapp-t:#F6EAD3;--github-t:#E8EBEF;--no-t:#FBE3E0;}@media (prefers-color-scheme:dark){svg{--bg:#14171C;--card:#1B1F26;--line:#2E343D;--faint:#3B424D;--ink:#E6E8EC;--ink2:#A1A9B5;--agent:#83AEE8;--straza:#5DC3A0;--ghapp:#E2AC52;--github:#AEB6C2;--no:#F08A7E;--agent-t:#1C2B40;--straza-t:#13322A;--ghapp-t:#36290F;--github-t:#272C34;--no-t:#3D1D1A;}}text{white-space:pre}.m{font-family:ui-monospace,SFMono-Regular,"SF Mono",Menlo,Consolas,"Liberation Mono","Noto Sans Mono",monospace}.panel{fill:var(--bg);stroke:var(--line);stroke-width:1.5}.card{fill:var(--card);stroke:var(--line);stroke-width:1.25}.z16{font-size:16px}.z17{font-size:17px}.z18{font-size:18px}.z19{font-size:19px}.z20{font-size:20px}.z21{font-size:21px}.z22{font-size:22px}.z28{font-size:28px}.w6{font-weight:600}.it{font-style:italic}.ink{fill:var(--ink)}.ink2{fill:var(--ink2)}.oncard{fill:var(--card)}.h{paint-order:stroke;stroke:var(--bg);stroke-width:8px;stroke-linejoin:round}.hc{paint-order:stroke;stroke:var(--card);stroke-width:8px;stroke-linejoin:round}.trk{fill:none;stroke:var(--faint);stroke-width:2}.trk10{fill:none;stroke:var(--faint);stroke-width:10;stroke-linecap:round}.life{fill:none;stroke:var(--faint);stroke-width:2;stroke-linecap:round;stroke-dasharray:0 7}.ln{fill:none;stroke-width:2.25;stroke-linecap:round;stroke-linejoin:round}.ln10{fill:none;stroke-width:10;stroke-linecap:round}.dash{fill:none;stroke:var(--ink2);stroke-width:1.5;stroke-dasharray:5 5}.frame{fill:none;stroke:var(--line);stroke-width:1.25}.pk,.o0{opacity:0}.mask{fill:var(--card)}.pkf{fill:var(--ink)}.f-agent{fill:var(--agent)}.s-agent{stroke:var(--agent)}.t-agent{fill:var(--agent-t)}.f-straza{fill:var(--straza)}.s-straza{stroke:var(--straza)}.t-straza{fill:var(--straza-t)}.f-ghapp{fill:var(--ghapp)}.s-ghapp{stroke:var(--ghapp)}.t-ghapp{fill:var(--ghapp-t)}.f-github{fill:var(--github)}.s-github{stroke:var(--github)}.t-github{fill:var(--github-t)}.f-no{fill:var(--no)}.s-no{stroke:var(--no)}.t-no{fill:var(--no-t)}.mk-full{fill:var(--ink2)}.mk-line{fill:none;stroke:var(--ink2);stroke-width:1.5}@media (prefers-reduced-motion:no-preference){.k1{animation:k1 10s ease-in-out infinite}.k2{animation:k2 10s ease-in-out infinite}.k3{animation:k3 10s ease-in-out infinite}.k4{animation:k4 10s ease-in-out infinite}.k5{stroke-dasharray:210 210;animation:k5 10s ease-in-out infinite}.k6{animation:k6 10s ease-in-out infinite}.k7{stroke-dasharray:210 210;animation:k7 10s ease-in-out infinite}.k8{animation:k8 10s ease-in-out infinite}.k9{stroke-dasharray:210 210;animation:k9 10s ease-in-out infinite}.k10{animation:k10 10s ease-in-out infinite}.k11{stroke-dasharray:210 210;animation:k11 10s ease-in-out infinite}.k12{animation:k12 10s ease-in-out infinite}.k13{stroke-dasharray:210 210;animation:k13 10s ease-in-out infinite}.k14{animation:k14 10s ease-in-out infinite}.k15{stroke-dasharray:210 210;animation:k15 10s ease-in-out infinite}.k16{animation:k16 10s ease-in-out infinite}.k17{animation:k17 10s ease-in-out infinite}.k18{animation:k18 10s ease-in-out infinite}.k19{animation:k19 10s ease-in-out infinite}.k20{animation:k20 10s ease-in-out infinite}.k21{animation:k21 10s ease-in-out infinite}}@keyframes k1{0%{opacity:0}14%{opacity:0}18%{opacity:1}93%{opacity:1}100%{opacity:0}}@keyframes k2{0%{opacity:0}28%{opacity:0}32%{opacity:1}93%{opacity:1}100%{opacity:0}}@keyframes k3{0%{opacity:0}31%{opacity:0}35%{opacity:1}93%{opacity:1}100%{opacity:0}}@keyframes k4{0%{opacity:0}42%{opacity:0}46%{opacity:1}93%{opacity:1}100%{opacity:0}}@keyframes k5{0%{stroke-dashoffset:210;opacity:1}5%{stroke-dashoffset:210;opacity:1}14%{stroke-dashoffset:0;opacity:1}93%{stroke-dashoffset:0;opacity:1}98%{stroke-dashoffset:0;opacity:0}100%{stroke-dashoffset:210;opacity:0}}@keyframes k6{0%{opacity:0}13%{opacity:0}17%{opacity:1}93%{opacity:1}100%{opacity:0}}@keyframes k7{0%{stroke-dashoffset:210;opacity:1}18%{stroke-dashoffset:210;opacity:1}27%{stroke-dashoffset:0;opacity:1}93%{stroke-dashoffset:0;opacity:1}98%{stroke-dashoffset:0;opacity:0}100%{stroke-dashoffset:210;opacity:0}}@keyframes k8{0%{opacity:0}26%{opacity:0}30%{opacity:1}93%{opacity:1}100%{opacity:0}}@keyframes k9{0%{stroke-dashoffset:210;opacity:1}33%{stroke-dashoffset:210;opacity:1}42%{stroke-dashoffset:0;opacity:1}93%{stroke-dashoffset:0;opacity:1}98%{stroke-dashoffset:0;opacity:0}100%{stroke-dashoffset:210;opacity:0}}@keyframes k10{0%{opacity:0}41%{opacity:0}45%{opacity:1}93%{opacity:1}100%{opacity:0}}@keyframes k11{0%{stroke-dashoffset:210;opacity:1}45%{stroke-dashoffset:210;opacity:1}54%{stroke-dashoffset:0;opacity:1}93%{stroke-dashoffset:0;opacity:1}98%{stroke-dashoffset:0;opacity:0}100%{stroke-dashoffset:210;opacity:0}}@keyframes k12{0%{opacity:0}53%{opacity:0}57%{opacity:1}93%{opacity:1}100%{opacity:0}}@keyframes k13{0%{stroke-dashoffset:210;opacity:1}54%{stroke-dashoffset:210;opacity:1}63%{stroke-dashoffset:0;opacity:1}93%{stroke-dashoffset:0;opacity:1}98%{stroke-dashoffset:0;opacity:0}100%{stroke-dashoffset:210;opacity:0}}@keyframes k14{0%{opacity:0}62%{opacity:0}66%{opacity:1}93%{opacity:1}100%{opacity:0}}@keyframes k15{0%{stroke-dashoffset:210;opacity:1}63%{stroke-dashoffset:210;opacity:1}72%{stroke-dashoffset:0;opacity:1}93%{stroke-dashoffset:0;opacity:1}98%{stroke-dashoffset:0;opacity:0}100%{stroke-dashoffset:210;opacity:0}}@keyframes k16{0%{opacity:0}71%{opacity:0}75%{opacity:1}93%{opacity:1}100%{opacity:0}}@keyframes k17{0%{opacity:0.3}2%{opacity:0.3}6%{opacity:1}93%{opacity:1}100%{opacity:0.3}}@keyframes k18{0%{opacity:0.3}14%{opacity:0.3}18%{opacity:1}93%{opacity:1}100%{opacity:0.3}}@keyframes k19{0%{opacity:0.3}27%{opacity:0.3}31%{opacity:1}93%{opacity:1}100%{opacity:0.3}}@keyframes k20{0%{opacity:0.3}42%{opacity:0.3}46%{opacity:1}93%{opacity:1}100%{opacity:0.3}}@keyframes k21{0%{opacity:0;transform:translate(156px,556px)}4.5%{opacity:0;transform:translate(156px,556px)}5%{opacity:1;transform:translate(156px,556px)}14%{opacity:1;transform:translate(384px,556px)}18%{opacity:1;transform:translate(384px,556px)}27%{opacity:1;transform:translate(612px,556px)}33%{opacity:1;transform:translate(612px,556px)}42%{opacity:1;transform:translate(840px,556px)}45%{opacity:1;transform:translate(840px,584px)}54%{opacity:1;transform:translate(612px,584px)}63%{opacity:1;transform:translate(384px,584px)}72%{opacity:1;transform:translate(156px,584px)}75%{opacity:0;transform:translate(156px,584px)}100%{opacity:0;transform:translate(156px,584px)}}@media (prefers-reduced-motion:reduce){*{animation:none!important}}</style>
+<rect x="0.75" y="0.75" width="958.5" height="750.5" rx="20" class="panel"/>
+<text x="32" y="62" class="m z18 ink2">01</text>
+<text x="66" y="62" class="z28 w6 ink">Who holds what</text>
+<rect x="32" y="96" width="248" height="386" rx="14" class="card"/>
+<path d="M32 110 A14 14 0 0 1 46 96 H266 A14 14 0 0 1 280 110" class="s-agent" fill="none" stroke-width="5"/>
+<text x="52" y="142" class="z22 w6 ink">Agent machine</text>
+<rect x="296" y="96" width="176" height="386" rx="14" class="card"/>
+<path d="M296 110 A14 14 0 0 1 310 96 H458 A14 14 0 0 1 472 110" class="s-straza" fill="none" stroke-width="5"/>
+<text x="316" y="142" class="z22 w6 ink">Straza</text>
+<rect x="488" y="96" width="248" height="386" rx="14" class="card"/>
+<path d="M488 110 A14 14 0 0 1 502 96 H722 A14 14 0 0 1 736 110" class="s-ghapp" fill="none" stroke-width="5"/>
+<text x="508" y="142" class="z22 w6 ink">ghapp</text>
+<rect x="752" y="96" width="176" height="386" rx="14" class="card"/>
+<path d="M752 110 A14 14 0 0 1 766 96 H914 A14 14 0 0 1 928 110" class="s-github" fill="none" stroke-width="5"/>
+<text x="772" y="142" class="z22 w6 ink">GitHub</text>
+<text x="52" y="184" class="z17 ink2">the agent</text>
+<text x="52" y="211" class="m z19 ink">joe-macos-agent</text>
+<text x="52" y="254" class="z17 ink2">git, through Straza's holder</text>
+<text x="52" y="281" class="m z18 ink">straza service</text>
+<text x="52" y="324" class="z17 ink2">its Straza session</text>
+<text x="52" y="351" class="m z18 ink">straza mcp ghapp</text>
+<text x="52" y="394" class="z17 ink2">GitHub token</text>
+<rect x="50" y="406" width="212" height="54" rx="8" class="dash"/>
+<text x="156" y="441" class="z22 w6 ink" text-anchor="middle">never</text>
+<rect x="306" y="190" width="156" height="60" rx="6" class="t-straza k1"/>
+<text x="316" y="184" class="z17 ink2">roles</text>
+<text x="316" y="211" class="z20 ink">tools</text>
+<text x="316" y="237" class="z20 ink">+ repos (<tspan class="m w6">covers</tspan>)</text>
+<text x="316" y="300" class="z17 ink2">approvals</text>
+<text x="316" y="327" class="z20 ink">a person</text>
+<text x="316" y="353" class="z20 ink">says yes</text>
+<text x="316" y="396" class="z17 ink2">audit</text>
+<text x="316" y="423" class="z20 ink">every call</text>
+<rect x="500" y="164" width="224" height="194" rx="10" class="ln s-ghapp"/>
+<text x="516" y="170" class="z17 w6 f-ghapp hc">stays in ghapp</text>
+<rect x="510" y="184" width="204" height="40" rx="6" class="t-ghapp k2"/>
+<text x="522" y="210" class="z20 ink">App private key</text>
+<rect x="510" y="232" width="204" height="114" rx="6" class="t-ghapp k3"/>
+<text x="522" y="259" class="z20 ink">GitHub tokens</text>
+<text x="522" y="285" class="z17 ink2">one repo, one agent,</text>
+<text x="522" y="309" class="z17 ink2">only the tool's</text>
+<text x="522" y="333" class="z17 ink2">permissions</text>
+<text x="508" y="398" class="z17 ink2">checks</text>
+<text x="508" y="425" class="z20 ink">exact name</text>
+<text x="508" y="451" class="z20 ink">repo id matches</text>
+<rect x="762" y="190" width="156" height="60" rx="6" class="t-github k4"/>
+<text x="772" y="184" class="z17 ink2">repos</text>
+<text x="772" y="211" class="z20 ink">the code,</text>
+<text x="772" y="237" class="z20 ink">PRs, issues</text>
+<text x="772" y="300" class="z17 ink2">audit log</text>
+<text x="772" y="327" class="m z18 ink">ghapp[bot]</text>
+<text x="772" y="353" class="z19 ink">+ token hash</text>
+<path d="M156 482 L156 540" class="life"/>
+<path d="M384 482 L384 540" class="life"/>
+<path d="M612 482 L612 540" class="life"/>
+<path d="M840 482 L840 540" class="life"/>
+<path d="M156 556 L840 556" class="trk"/>
+<path d="M156 584 L840 584" class="trk"/>
+<path d="M165 556 L375 556" class="ln s-agent k5"/>
+<path d="M367 549 L374 556 L367 563" class="ln s-agent k6"/>
+<path d="M393 556 L603 556" class="ln s-straza k7"/>
+<path d="M595 549 L602 556 L595 563" class="ln s-straza k8"/>
+<path d="M621 556 L831 556" class="ln s-ghapp k9"/>
+<path d="M823 549 L830 556 L823 563" class="ln s-ghapp k10"/>
+<path d="M831 584 L621 584" class="ln s-github k11"/>
+<path d="M629 577 L622 584 L629 591" class="ln s-github k12"/>
+<path d="M603 584 L393 584" class="ln s-ghapp k13"/>
+<path d="M401 577 L394 584 L401 591" class="ln s-ghapp k14"/>
+<path d="M375 584 L165 584" class="ln s-straza k15"/>
+<path d="M173 577 L166 584 L173 591" class="ln s-straza k16"/>
+<rect x="148" y="540" width="16" height="60" rx="8" stroke-width="2" class="t-agent s-agent k17"/>
+<rect x="376" y="540" width="16" height="60" rx="8" stroke-width="2" class="t-straza s-straza k18"/>
+<rect x="604" y="540" width="16" height="60" rx="8" stroke-width="2" class="t-ghapp s-ghapp k19"/>
+<rect x="832" y="540" width="16" height="60" rx="8" stroke-width="2" class="t-github s-github k20"/>
+<text x="270" y="544" class="m z17 ink" text-anchor="middle">pr_create</text>
+<text x="498" y="544" class="z17 ink2" text-anchor="middle">allowed</text>
+<text x="726" y="544" class="z17 ink2" text-anchor="middle">API call</text>
+<text x="498" y="622" class="z17 ink2" text-anchor="middle">the result comes back the same way</text>
+<g class="pk k21"><rect x="-6" y="-6" width="12" height="12" rx="3" class="pkf"/></g>
+<rect x="32" y="660" width="12" height="12" rx="2" class="mk-full"/>
+<text x="54" y="672" class="z17 ink2"><tspan class="w6 ink">Built: </tspan>ghapp's tools and checks, who may call ghapp, its git endpoint, one token per agent.</text>
+<rect x="32" y="687" width="12" height="12" rx="2" class="mk-full"/>
+<text x="54" y="699" class="z17 ink2"><tspan class="w6 ink">Built: </tspan>Straza's role field covers, for every repo or named repos.</text>
+</svg>
