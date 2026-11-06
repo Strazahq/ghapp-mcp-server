@@ -200,7 +200,7 @@ type writeOutput struct {
 	Summary string `json:"summary"`
 	Method  string `json:"method"`
 	Path    string `json:"path"`
-	Body    any    `json:"body,omitempty"`
+	Body    any    `json:"body,omitempty" jsonschema:"the JSON body of the GitHub API request, when it has one"`
 	// What GitHub answered.
 	Number    int    `json:"number,omitempty" jsonschema:"the issue or pull request number"`
 	CommentID int64  `json:"commentId,omitempty"`

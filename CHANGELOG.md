@@ -6,6 +6,14 @@ All notable changes to this project are documented here. The format follows
 
 ## [Unreleased]
 
+### Fixed
+
+- The output schema of the five write tools typed `body` as the boolean
+  schema `true`. The MCP schema types each property as an object, and clients
+  on the TypeScript SDK refuse the whole tool list over it. `body` now has a
+  schema object with a description, and a test checks every property schema
+  of every tool.
+
 ## [0.1.0] - 2026-10-30
 
 The first release. ghapp is an MCP server that works on GitHub as one
