@@ -6,6 +6,8 @@ All notable changes to this project are documented here. The format follows
 
 ## [Unreleased]
 
+## [0.1.1] - 2026-11-06
+
 ### Fixed
 
 - The output schema of the five write tools typed `body` as the boolean
@@ -56,5 +58,6 @@ Dependencies: the official MCP Go SDK (`github.com/modelcontextprotocol/go-sdk`)
 `github.com/go-jose/go-jose/v4` for the App's JWT and Straza's grants, and
 `github.com/coreos/go-oidc/v3` with `golang.org/x/oauth2` for OIDC callers.
 
-[Unreleased]: https://github.com/strazahq/ghapp-mcp-server/compare/v0.1.0...HEAD
+[Unreleased]: https://github.com/strazahq/ghapp-mcp-server/compare/v0.1.1...HEAD
+[0.1.1]: https://github.com/strazahq/ghapp-mcp-server/releases/tag/v0.1.1
 [0.1.0]: https://github.com/strazahq/ghapp-mcp-server/releases/tag/v0.1.0
