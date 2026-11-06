@@ -58,7 +58,7 @@ tools that write.
 The container image, for linux/amd64 and linux/arm64:
 
 ```sh
-docker pull ghcr.io/strazahq/ghapp-mcp-server:0.1.0
+docker pull ghcr.io/strazahq/ghapp-mcp-server:0.1.1
 ```
 
 A release binary for Linux, macOS or Windows, checked against the release's
@@ -99,7 +99,7 @@ docker run -p 8080:8080 \
   -e GHAPP_PRIVATE_KEY_FILE=/run/secrets/app-key.pem \
   -e GHAPP_MCP_GATEWAY_SECRET="$(cat gateway-secret)" \
   -v "$PWD/app-key.pem:/run/secrets/app-key.pem:ro" \
-  ghcr.io/strazahq/ghapp-mcp-server:0.1.0 --http 0.0.0.0:8080
+  ghcr.io/strazahq/ghapp-mcp-server:0.1.1 --http 0.0.0.0:8080
 ```
 
 | Setting | What it does |
